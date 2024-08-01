@@ -1,6 +1,6 @@
 import Banner from "@/components/banner/Banner";
 
-const Home = () => {
+const Mobails = () => {
   return (
     <div>
       <Banner
@@ -8,8 +8,9 @@ const Home = () => {
         headingText="Wellcome."
         subheadingText="Pleas explore my mobail website visite here and my website"
       />
+      <div className="bg-red-400 container">Mobails</div>
     </div>
   );
 };
 
-export default Home;
+export default Mobails;
