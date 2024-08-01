@@ -1,4 +1,5 @@
 import Banner from "@/components/banner/Banner";
+import MobailsCom from "@/components/mobails/Mobails";
 
 const Home = () => {
   return (
@@ -8,6 +9,9 @@ const Home = () => {
         headingText="Wellcome."
         subheadingText="Pleas explore my mobail website visite here and my website"
       />
+      <div>
+        <MobailsCom />
+      </div>
     </div>
   );
 };

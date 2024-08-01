@@ -88,6 +88,13 @@ const Navbar = () => {
                 : "hidden"
             }`}
           >
+            <Link to="/">
+              <h1
+                className={` block mt-4 md:inline-block md:mt-0 md:ml-4  transition duration-300 cursor-pointer font-bold ${text}`}
+              >
+                Home
+              </h1>
+            </Link>
             <Link to="/mobails">
               <h1
                 className={` block mt-4 md:inline-block md:mt-0 md:ml-4  transition duration-300 cursor-pointer font-bold ${text}`}
@@ -95,18 +102,11 @@ const Navbar = () => {
                 Mobails
               </h1>
             </Link>
-            <Link to="/about">
+            <Link to="/about_us">
               <h1
                 className={` block mt-4 md:inline-block md:mt-0 md:ml-4  transition duration-300 cursor-pointer font-bold ${text}`}
               >
-                About
-              </h1>
-            </Link>
-            <Link to="/contact">
-              <h1
-                className={` block mt-4 md:inline-block md:mt-0 md:ml-4  transition duration-300 cursor-pointer font-bold ${text}`}
-              >
-                Contact
+                About us
               </h1>
             </Link>
           </div>
