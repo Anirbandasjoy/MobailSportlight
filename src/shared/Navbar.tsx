@@ -1,11 +1,28 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import DropDownMenu from "./DropDownMenu";
+import { LucideShoppingCart } from "lucide-react";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { deleteProduct, getLocalStorageData } from "@/helper";
+import { products } from "@/products";
+import { IoClose } from "react-icons/io5";
+import { Button } from "@/components/ui/button";
+import { toast } from "@/components/ui/use-toast";
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
   const [navBackground, setNavBackground] = useState("bg-[#5eaaf500]");
   const [text, setText] = useState("text-white");
+  const [cartProduct, setCartProduct] = useState<any>([]);
+
+  useEffect(() => {
+    const piD = getLocalStorageData();
+    if (piD) {
+      setCartProduct(products?.filter((p) => piD.includes(p.id)));
+    }
+  }, []);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -28,6 +45,23 @@ const Navbar = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+  console.log(cartProduct);
+
+  const handleRemoveProduct = (id: number) => {
+    const message = deleteProduct(id);
+    if (message === "Cart item deleted") {
+      const updatedCart = cartProduct.filter(
+        (product: any) => product.id !== id
+      );
+      setCartProduct(updatedCart);
+      toast({
+        title: "Already in Cart this product",
+        description: "This item is already in your cart.",
+      });
+    } else {
+      console.error(message);
+    }
+  };
 
   return (
     <nav
@@ -109,6 +143,81 @@ const Navbar = () => {
                 About us
               </h1>
             </Link>
+
+            <Sheet>
+              <SheetTrigger asChild>
+                <div>
+                  <h1
+                    className={` block mt-4 md:inline-block md:mt-0 md:ml-4  transition duration-300 cursor-pointer font-bold ${text}`}
+                  >
+                    <LucideShoppingCart />
+                  </h1>
+                </div>
+              </SheetTrigger>
+              <SheetContent>
+                <div className="flex flex-col justify-between  h-[calc(100vh-100px)]">
+                  <div>
+                    <h1 className="text-lg font-semibold text-red-400">
+                      Cart Products
+                    </h1>
+                    <div className="bg-gray-200 w-full h-[2px] mt-2"></div>
+                    <div className="mt-4 space-y-2 ">
+                      {cartProduct?.map((product: any) => {
+                        const discountAmount =
+                          (product.price * product.discountPercentage) / 100;
+                        const discountedPrice = product.price - discountAmount;
+                        return (
+                          <div
+                            key={product?.id}
+                            className="bg-red-100 p-1 rounded-sm relative"
+                          >
+                            <div className="flex gap-3">
+                              <div className="w-16 h-16 rounded-full  bg-red-100">
+                                <img
+                                  className="w-full h-full"
+                                  src={product?.thumbnail}
+                                  alt="product image"
+                                />
+                              </div>
+                              <div className="space-y-1">
+                                <h1 className="text-[15px] font-semibold text-gray-600">
+                                  {product?.title}
+                                </h1>
+                                <p className="text-sm font-semibold text-gray-600">
+                                  {discountedPrice.toFixed(2)} BDT
+                                </p>
+                              </div>
+                            </div>
+                            <div
+                              className="absolute  -right-1 -top-2"
+                              onClick={() => handleRemoveProduct(product.id)}
+                            >
+                              <IoClose className="text-2xl text-white p-1 cursor-pointer bg-red-400 " />
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                  <div className="my-2">
+                    <h1 className="text-lg font-semibold text-gray-600">
+                      Total Price :{" "}
+                      {cartProduct
+                        .reduce(
+                          (a: number, c: any) =>
+                            a +
+                            c.price -
+                            (c.price * c.discountPercentage) / 100,
+                          0
+                        )
+                        .toFixed(2)}{" "}
+                      BDT
+                    </h1>
+                    <Button className="w-full mt-2 rounded-sm">Order</Button>
+                  </div>
+                </div>
+              </SheetContent>
+            </Sheet>
           </div>
           <div className="cursor-pointer">
             <DropDownMenu

@@ -12,15 +12,12 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 import {
-  BellRing,
   Github,
   LayoutDashboard,
   LifeBuoy,
   LogOut,
-  Newspaper,
   Settings,
   User,
-  Users,
 } from "lucide-react";
 
 import { Link } from "react-router-dom";
@@ -87,23 +84,7 @@ const DropDownMenu = ({
             </DropdownMenuItem>
           </DropdownMenuGroup>
           <DropdownMenuSeparator />
-          <DropdownMenuGroup>
-            <Link to="/dashboard/create-notice">
-              <DropdownMenuItem>
-                <Newspaper className="mr-2 h-4 w-4" />
-                <span>Create Notice</span>
-              </DropdownMenuItem>
-            </Link>
-            <DropdownMenuItem>
-              <Users className="mr-2 h-4 w-4" />
-              <span>Team</span>
-            </DropdownMenuItem>
-            <DropdownMenuItem>
-              <BellRing className="mr-2 h-4 w-4" />
-              <span>Notifications</span>
-              <DropdownMenuShortcut>⌘+T</DropdownMenuShortcut>
-            </DropdownMenuItem>
-          </DropdownMenuGroup>
+          <DropdownMenuGroup></DropdownMenuGroup>
           <DropdownMenuSeparator />
           <DropdownMenuItem>
             <Github className="mr-2 h-4 w-4" />

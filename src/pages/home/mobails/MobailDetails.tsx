@@ -1,7 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import Banner from "@/components/banner/Banner";
 import Review from "@/components/review/Review";
+import { Button } from "@/components/ui/button";
+import { toast } from "@/components/ui/use-toast";
+import { saveProduct } from "@/helper";
 import { products } from "@/products";
+import { LucideShoppingCart } from "lucide-react";
 import { useEffect, useState } from "react";
 import { IoBedOutline } from "react-icons/io5";
 import { TbLocationDiscount } from "react-icons/tb";
@@ -10,6 +14,24 @@ import { ScrollRestoration, useParams } from "react-router-dom";
 const MobailDetails = () => {
   const { mobailId } = useParams();
   const [singleProduct, setSingleProduct] = useState<any | null>(null);
+  const handleAddToCart = () => {
+    if (mobailId) {
+      const result = saveProduct(Number(mobailId));
+      if (result === "Already Applied this product") {
+        toast({
+          title: "Already in Cart this product",
+          description: "This item is already in your cart.",
+        });
+      } else {
+        toast({
+          title: "Added Successfully",
+          description: "Item has been added to your cart.",
+        });
+      }
+    } else {
+      console.error("mobail id not found");
+    }
+  };
 
   useEffect(() => {
     setSingleProduct(
@@ -86,6 +108,15 @@ const MobailDetails = () => {
                     </div>
                   </div>
                 </div>
+              </div>
+              <div className="w-full ">
+                <Button
+                  className="w-full rounded-sm space-x-2"
+                  onClick={handleAddToCart}
+                >
+                  <LucideShoppingCart className="text-white " />
+                  <span>Add to cart</span>
+                </Button>
               </div>
             </div>
           </div>
