@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../layout/MainLayout";
 import Home from "@/pages/home/home/Home";
 import Mobails from "@/pages/home/mobails/Mobails";
+import MobailDetails from "@/pages/home/mobails/MobailDetails";
 
 export const router = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ export const router = createBrowserRouter([
       {
         path: "/mobails",
         element: <Mobails />,
+      },
+      {
+        path: "/mobails/:mobailId",
+        element: <MobailDetails />,
       },
     ],
   },
