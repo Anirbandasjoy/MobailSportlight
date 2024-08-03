@@ -13,7 +13,7 @@ import { FaDollarSign } from "react-icons/fa";
 import { IoIosStarOutline } from "react-icons/io";
 import { IoBedOutline, IoFilterOutline } from "react-icons/io5";
 import { TbLocationDiscount } from "react-icons/tb";
-import { Link } from "react-router-dom";
+import { Link, ScrollRestoration } from "react-router-dom";
 import { SwiperSlide } from "swiper/react";
 import {
   Select,
@@ -42,6 +42,7 @@ const Mobails = () => {
 
   return (
     <div className="mb-10">
+      <ScrollRestoration />
       <Banner
         imageURL="https://media.istockphoto.com/id/1774613488/photo/business-people-portrait-of-a-beautiful-asian-chinese-female-in-yellow-cardigan-using-her.jpg?s=1024x1024&w=is&k=20&c=LHhSXLHe9vYLer1Fh2yo7-Yw1ebiIR07NL1Zutoo1zM="
         headingText="See all mobails."

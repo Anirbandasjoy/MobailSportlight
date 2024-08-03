@@ -1,6 +1,6 @@
 import Banner from "@/components/banner/Banner";
 import MobailsCom from "@/components/mobails/Mobails";
-import ServicesSection from "@/pages/about/About";
+import ServicesSection from "@/components/Service/Service";
 
 const Home = () => {
   return (

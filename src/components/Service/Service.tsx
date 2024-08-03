@@ -2,7 +2,7 @@ import { FaCamera, FaWater, FaHeadphones, FaMobileAlt } from "react-icons/fa";
 
 function ServicesSection() {
   return (
-    <div className="flex flex-col lg:flex-row items-center justify-between bg-white py-12">
+    <div className="flex flex-col lg:flex-row container mt-32 items-center justify-between bg-white py-12">
       {/* Services List */}
       <div className="w-full lg:w-1/2 p-6">
         <div className="mb-8">
@@ -45,7 +45,7 @@ function ServicesSection() {
             dapibus, tellus ac cursus commodo, tortor mauris.
           </p>
         </div>
-        <button className="bg-purple-600 text-white px-6 py-3 rounded-lg text-lg flex items-center">
+        <button className="bg-blue-500 text-white px-6 py-3 rounded-lg text-lg flex items-center">
           <FaCamera className="mr-2" />
           Get a Quote
         </button>
@@ -53,7 +53,7 @@ function ServicesSection() {
       {/* Image */}
       <div className="w-full lg:w-1/2 p-6 flex justify-center">
         <img
-          src="https://example.com/your-image-url.jpg"
+          src="https://www.91-img.com/gallery_images_uploads/2/9/29544b57b8f16d5ebfe7f92d9c90043b5fc68b0f.jpg?tr=h-630,c-at_max,q-80"
           alt="Exploded view of a phone"
           className="w-full h-auto"
         />

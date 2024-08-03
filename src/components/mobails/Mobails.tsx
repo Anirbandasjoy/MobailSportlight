@@ -18,7 +18,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { Link } from "react-router-dom";
+import { Link, ScrollRestoration } from "react-router-dom";
 import SwiperNavButton from "./SwipperNavButton";
 import { products } from "@/products";
 import { TbLocationDiscount } from "react-icons/tb";
@@ -49,6 +49,7 @@ const MobailsCom = () => {
 
   return (
     <div className="mb-20 container mx-auto">
+      <ScrollRestoration />
       <div className="mb-8 flex justify-between items-center">
         <div className="flex items-center gap-2 cursor-pointer hover:underline">
           <Link
