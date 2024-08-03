@@ -1,5 +1,6 @@
 import Banner from "@/components/banner/Banner";
 import MobailsCom from "@/components/mobails/Mobails";
+import ServicesSection from "@/pages/about/About";
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
       <div>
         <MobailsCom />
       </div>
+      <ServicesSection />
     </div>
   );
 };
