@@ -10,13 +10,13 @@ function Footer() {
           <div className="flex items-start space-x-4 mb-6 md:mb-0">
             <div className="flex-shrink-0">
               <img
-                src="https://themes.webdevia.com/phonerepair/wp-content/uploads/2016/03/logo-footer.png"
+                src="https://i.ibb.co/Th5Xfjx/Apple-Messages-512.png"
                 alt="Phone Repair"
                 className="h-12 w-auto"
               />
             </div>
             <div>
-              <h2 className="text-2xl font-bold mb-4">Mobail Sporlight</h2>
+              <h2 className="text-2xl font-bold mb-4">Test Lav</h2>
               <div className="space-y-1">
                 <p className="mt-2">Phone: +8801772838734</p>
                 <p>Fax: +1 496 457 654</p>

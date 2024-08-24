@@ -1,19 +1,26 @@
 import Banner from "@/components/banner/Banner";
-import MobailsCom from "@/components/mobails/Mobails";
-import ServicesSection from "@/components/Service/Service";
+
+import FAQ from "./Question";
+import Contact from "./Contact";
+import FoodsCom from "@/components/Foods/Foods";
 
 const Home = () => {
   return (
     <div>
       <Banner
-        imageURL="https://media.istockphoto.com/id/1411931989/photo/happy-portrait-smiling-young-asian-woman-using-smartphone-isolated-on-blue-background.jpg?s=1024x1024&w=is&k=20&c=KE2sUBzZpTVBKkJhy6V070ZPhQPTMFk6mREcVfECT0I="
+        imageURL="https://plus.unsplash.com/premium_photo-1663852297522-d01619dc3e55?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         headingText="Wellcome."
         subheadingText="Pleas explore my mobail website visite here and my website"
       />
       <div>
-        <MobailsCom />
+        <FoodsCom />
       </div>
-      <ServicesSection />
+      <div className="sm:mt-32 ">
+        <FAQ />
+      </div>
+      <div>
+        <Contact />
+      </div>
     </div>
   );
 };
