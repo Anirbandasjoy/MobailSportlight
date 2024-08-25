@@ -4,6 +4,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 const testyTableApi = createApi({
   reducerPath: "testyTableApi",
   baseQuery: fetchBaseQuery({
+    // baseUrl: "http://localhost:3000/api/v1",
     baseUrl: "http://localhost:3000/api/v1",
     credentials: "include",
   }),

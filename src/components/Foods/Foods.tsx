@@ -165,7 +165,7 @@ const FoodsCom = () => {
               const totalPrice = Number(product.price) * Number(quantity);
 
               return (
-                <SwiperSlide key={product.id} className="rounded-sm">
+                <SwiperSlide key={product._id} className="rounded-sm">
                   <div className="">
                     <div className="w-full relative md:h-[20rem] h-[20rem] bg-blue-200 rounded-t-sm">
                       <img

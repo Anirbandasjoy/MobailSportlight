@@ -18,7 +18,7 @@ const AddFood = () => {
   const [rating, setRating] = useState<number | null | string>(3);
   const [hover, setHover] = useState<null | any>(null);
   const [setAddFood, { data }] = useAddFoodMutation();
-  const value = "";
+  const value = "default";
   const search = "";
   const { refetch } = useFindAllFoodQuery({ value, search });
   const [loading, setLoading] = useState<boolean>(false);
